@@ -1,0 +1,21 @@
+{
+  "name": "claude-code-test",
+  "version": "1.0.0",
+  "description": "A browser-based todo application with persistent storage",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "start": "serve src -l 3000",
+    "build": "echo 'No build step required — open src/index.html in a browser'"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "serve": "^14.2.4"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "testMatch": ["**/tests/**/*.test.js"],
+    "transform": {}
+  }
+}
