@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        background: #f5f5f5;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        padding: 40px 16px;
+      }
+
+      .app {
+        width: 100%;
+        max-width: 480px;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 24px;
+        color: #e06c75;
+      }
+
+      .todo-input {
+        width: 100%;
+        padding: 14px 16px;
+        font-size: 1rem;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+
+      .todo-input:focus {
+        border-color: #e06c75;
+      }
+
+      .todo-list {
+        list-style: none;
+        margin-top: 16px;
+      }
+
+      .todo-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        background: #fff;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      }
+
+      .todo-item.completed .todo-text {
+        text-decoration: line-through;
+        color: #aaa;
+      }
+
+      .toggle {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+      }
+
+      .todo-text {
+        flex: 1;
+        font-size: 1rem;
+      }
+
+      .delete-btn {
+        background: none;
+        border: none;
+        font-size: 1.4rem;
+        color: #ccc;
+        cursor: pointer;
+        line-height: 1;
+      }
+
+      .delete-btn:hover {
+        color: #e06c75;
+      }
+
+      .empty-message {
+        text-align: center;
+        color: #aaa;
+        margin-top: 24px;
+      }
+
+      .footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 16px;
+        font-size: 0.85rem;
+        color: #888;
+      }
+
+      .filters {
+        display: flex;
+        gap: 4px;
+      }
+
+      .filter-btn {
+        background: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        padding: 2px 8px;
+        cursor: pointer;
+        color: #888;
+        font-size: 0.85rem;
+      }
+
+      .filter-btn.active {
+        border-color: #e06c75;
+        color: #e06c75;
+      }
+
+      .clear-completed-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #888;
+        font-size: 0.85rem;
+      }
+
+      .clear-completed-btn:hover {
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <h1>Todos</h1>
+      <input
+        id="todo-input"
+        class="todo-input"
+        type="text"
+        placeholder="What needs to be done?"
+        autofocus
+      />
+      <div id="list-container"></div>
+      <div id="footer-container"></div>
+    </div>
+
+    <!-- Load modules in dependency order -->
+    <script src="todo.js"></script>
+    <script src="storage.js"></script>
+    <script src="view.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
